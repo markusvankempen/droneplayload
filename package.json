@@ -1,0 +1,37 @@
+{
+  "name": "ibmiotf",
+  "version": "0.2.29",
+  "description": "A library for developing device and application clients for IBM Watson IoT Platform",
+  "main": "dist/iotf-client.js",
+  "dependencies": {
+    "axios": "^0.5.4",
+    "bluebird": "^2.9.34",
+    "btoa": "^1.1.2",
+    "events": "^1.0.2",
+    "format": "^0.2.1",
+    "mqtt": "1.5.0",
+    "loglevel" : "1.4.0",
+      "mic": "^2.1.1",
+      "pigpio": "^0.4.0",
+      "node-aplay": "^1.0.3",
+      "rpi-ws281x-native": "^0.8.1",
+      "watson-developer-cloud": "^2.8.1",
+      "web-audio-api": "^0.2.2",
+      "which": "^1.2.11"
+    },
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "build:commonjs": "babel src --out-dir dist --modules umd",
+    "build:bundle": "browserify src/iotf-client.js -t babelify -s IBMIoTF --outfile dist/iotf-client-bundle.js",
+    "build:min": "browserify src/iotf-client.js -t babelify -s IBMIoTF | uglifyjs > dist/iotf-client-bundle.min.js",
+    "build": "npm run clean && npm run build:commonjs && npm run build:bundle && npm run build:min",
+    "prepublish": "npm run build",
+    "test": "mocha --compilers js:babel/register",
+    "test:watch": "mocha --compilers js:babel/register --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibm-watson-iot/iot-nodejs.git"
+  },
+  "license": "EPL-1.0"
+}
