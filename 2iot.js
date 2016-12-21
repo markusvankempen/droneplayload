@@ -26,8 +26,8 @@ deviceClient.log.setLevel('debug');
 
 console.log("start");
 // pulsestart,increment,time,stopat
- motor.servoWrite(1800); //open
- turnMe(800,100,1000,900); //close
+// motor.servoWrite(1800); //open
+// turnMe(800,100,1000,900); //close
 //sleep(5000);
 //turnMe(2000,100,1000,2100);
 //turnMe(500,100,1000);  
